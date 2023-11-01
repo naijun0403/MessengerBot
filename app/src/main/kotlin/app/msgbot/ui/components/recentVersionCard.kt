@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -24,19 +25,32 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * TODO: 최신버전이 아니면 에러 메시지를 보여주어야 함 (일단 무조건 최신버전으로 가정)
+ * 최신 버전인지 여부를 표시하는 카드
+ * @param isLatestVersion 최신 버전인지 여부
+ * @see app.msgbot.ui.pages.HomeLayout
  */
 @Composable
-fun RecentVersionCard() {
+fun RecentVersionCard(
+    isLatestVersion: Boolean = true,
+) {
+    val color = if (isLatestVersion) {
+        CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary
+        )
+    } else {
+        CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.error,
+            contentColor = MaterialTheme.colorScheme.onError
+        )
+    }
+
     Card(
         modifier = Modifier
             .width(350.dp)
             .height(150.dp)
             .padding(top = 30.dp, start = 10.dp, end = 10.dp, bottom = 10.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary
-        )
+        colors = color
     ) {
         Column(
             modifier = Modifier
@@ -52,21 +66,40 @@ fun RecentVersionCard() {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Start
             ) {
-                Image(
-                    imageVector = Icons.Default.CheckCircle,
-                    contentDescription = "check",
-                    modifier = Modifier.size(25.dp),
-                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
-                )
+                if (isLatestVersion) {
+                    Image(
+                        imageVector = Icons.Default.CheckCircle,
+                        contentDescription = null,
+                        modifier = Modifier.size(25.dp),
+                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                    )
+                } else {
+                    Image(
+                        imageVector = Icons.Default.Error,
+                        contentDescription = null,
+                        modifier = Modifier.size(25.dp),
+                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onError)
+                    )
+                }
 
                 Spacer(modifier = Modifier.padding(10.dp))
 
-                Column {
-                    Text(text = "최신 버전입니다.", fontSize = 18.sp)
+                if (isLatestVersion) {
+                    Column {
+                        Text(text = "최신 버전입니다.", fontSize = 18.sp)
 
-                    Spacer(modifier = Modifier.padding(1.dp))
+                        Spacer(modifier = Modifier.padding(1.dp))
 
-                    Text(text = "현재 버전 정보: 1.0")
+                        Text(text = "현재 버전 정보: 1.0")
+                    }
+                } else {
+                    Column {
+                        Text(text = "최신 버전이 아닙니다.", fontSize = 18.sp)
+
+                        Spacer(modifier = Modifier.padding(1.dp))
+
+                        Text(text = "현재 버전 정보: 1.0")
+                    }
                 }
             }
         }
