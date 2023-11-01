@@ -32,8 +32,6 @@ fun HomeLayout() {
 
         ActiveCard()
 
-        Spacer(modifier = Modifier.padding(10.dp))
-
         RecentVersionCard()
 
         GlobalLogSummary()
