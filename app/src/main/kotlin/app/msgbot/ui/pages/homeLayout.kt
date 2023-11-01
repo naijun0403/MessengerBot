@@ -1,35 +1,19 @@
 package app.msgbot.ui.pages
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import app.msgbot.ui.components.ActiveCard
+import app.msgbot.ui.components.GlobalLogSummary
+import app.msgbot.ui.components.RecentVersionCard
 
 @Composable
 fun HomeLayout() {
@@ -46,164 +30,12 @@ fun HomeLayout() {
             modifier = Modifier.padding(top = 70.dp)
         ) // title
 
-        AllEnabledCard()
+        ActiveCard()
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         RecentVersionCard()
 
         GlobalLogSummary()
-    }
-}
-
-@Composable
-fun AllEnabledCard() {
-    Card(
-        modifier = Modifier
-            .width(350.dp)
-            .height(100.dp)
-            .padding(top = 30.dp, start = 10.dp, end = 10.dp, bottom = 10.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        )
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start
-        ) {
-            Text(
-                text = "모든 봇 활성화",
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.padding(top = 13.dp, start = 20.dp),
-                color = if (isSystemInDarkTheme()) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-
-        Row(
-            modifier = Modifier
-                .requiredHeight(45.dp)
-                .fillMaxWidth()
-                .padding(end = 20.dp, bottom = 45.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.End
-        ) {
-            Switch(
-                checked = true,
-                onCheckedChange = {},
-            )
-        }
-    }
-}
-
-/**
- * TODO: 최신버전이 아니면 에러 메시지를 보여주어야 함 (일단 무조건 최신버전으로 가정)
- *
- * issue: 기기마다 비율이 다름
- */
-@Composable
-fun RecentVersionCard() {
-    Card(
-        modifier = Modifier
-            .requiredSize(
-                width = 330.dp,
-                height = 110.dp
-            ),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary
-        )
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp)
-                    .padding(start = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
-            ) {
-                Image(
-                    imageVector = Icons.Default.CheckCircle,
-                    contentDescription = "check",
-                    modifier = Modifier.size(25.dp),
-                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
-                )
-
-                Spacer(modifier = Modifier.padding(10.dp))
-
-                Column {
-                    Text(text = "최신 버전입니다.", fontSize = 18.sp)
-
-                    Spacer(modifier = Modifier.padding(1.dp))
-
-                    Text(text = "현재 버전 정보: 1.0")
-                }
-            }
-        }
-    }
-}
-
-/**
- * TODO: 글로벌 로그 요약 (내용 미구현)
- */
-@Composable
-fun GlobalLogSummary() {
-    Card(
-        modifier = Modifier
-            .width(350.dp)
-            .height(300.dp)
-            .padding(top = 30.dp, start = 10.dp, end = 10.dp, bottom = 10.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        )
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(start = 20.dp, top = 15.dp),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start
-        ) {
-            Text(text = "글로벌 로그", style = MaterialTheme.typography.titleLarge)
-        }
-
-        Column(
-            modifier = Modifier
-                .padding(start = 20.dp, top = 15.dp, end = 20.dp, bottom = 15.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Card(
-                modifier = Modifier
-                    .width(300.dp)
-                    .height(130.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.inverseOnSurface,
-                )
-            ) {
-                // TODO: 글로벌 로그 요약 내용
-            }
-        }
-
-        // detail button
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 20.dp, top = 15.dp, end = 20.dp, bottom = 15.dp),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.End
-        ) {
-            Button(
-                modifier = Modifier.requiredHeight(54.dp)
-                    .padding(bottom = 14.dp),
-                onClick = { /* TODO */ }
-            ) {
-                Text(text = "자세히 보기")
-            }
-        }
     }
 }
