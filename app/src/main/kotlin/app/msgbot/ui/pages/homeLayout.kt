@@ -1,6 +1,9 @@
 package app.msgbot.ui.pages
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +14,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -25,6 +32,8 @@ fun HomeLayout() {
     var isLatestVersion = false // TODO: 최신버전인지 확인 (debug)
 
     var scrollState = rememberScrollState()
+
+    var visible by remember { mutableStateOf(true) }
 
     Column(
         modifier = Modifier
@@ -47,12 +56,23 @@ fun HomeLayout() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        RecentVersionCard(isLatestVersion)
-
-        Spacer(modifier = Modifier.height(20.dp))
+        AnimatedVisibility(
+            visible = visible,
+            exit = scaleOut()
+        ) {
+            Box(
+                modifier = Modifier.padding(bottom = 20.dp)
+            ) {
+                RecentVersionCard(isLatestVersion, onExit = {
+                    visible = false
+                })
+            }
+        }
 
         if (!isLatestVersion) {
-            NeedUpdateCard()
+            NeedUpdateCard(
+                downloadURL = "https://github.com/naijun0403/MessengerBot/releases"
+            )
         }
 
         Spacer(modifier = Modifier.height(20.dp))

@@ -38,6 +38,7 @@ import app.msgbot.ui.font.NotoSansKrRegular
 @Composable
 fun RecentVersionCard(
     isLatestVersion: Boolean = true,
+    onExit: () -> Unit
 ) {
     val color = if (isLatestVersion) {
         CardDefaults.cardColors(
@@ -53,7 +54,7 @@ fun RecentVersionCard(
 
     Card(
         modifier = Modifier
-            .width(300.dp)
+            .width(330.dp)
             .height(100.dp),
         colors = color
     ) {
@@ -116,7 +117,9 @@ fun RecentVersionCard(
                 horizontalAlignment = Alignment.End
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        onExit()
+                    },
                     modifier = Modifier
                         .size(20.dp),
                 ) {

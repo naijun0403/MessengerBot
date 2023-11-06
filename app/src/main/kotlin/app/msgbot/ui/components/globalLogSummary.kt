@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 fun GlobalLogSummary() {
     Card(
         modifier = Modifier
-            .width(300.dp)
+            .width(330.dp)
             .height(250.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -47,7 +47,7 @@ fun GlobalLogSummary() {
         ) {
             Card(
                 modifier = Modifier
-                    .width(300.dp)
+                    .width(330.dp)
                     .height(130.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.inverseOnSurface,

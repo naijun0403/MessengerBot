@@ -17,15 +17,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun NeedUpdateCard(
     downloadURL: String = "",
 ) {
+    val uriHandler = LocalUriHandler.current
+
     Card(
         modifier = Modifier
-            .width(300.dp)
+            .width(330.dp)
             .height(150.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -52,7 +55,9 @@ fun NeedUpdateCard(
             horizontalAlignment = Alignment.End
         ) {
             Button(
-                onClick = {},
+                onClick = {
+                    uriHandler.openUri(downloadURL)
+                },
                 modifier = Modifier
                     .requiredHeight(50.dp)
             ) {
