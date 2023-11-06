@@ -17,6 +17,7 @@ import app.msgbot.ui.components.ActiveCard
 import app.msgbot.ui.components.GlobalLogSummary
 import app.msgbot.ui.components.NeedUpdateCard
 import app.msgbot.ui.components.RecentVersionCard
+import app.msgbot.ui.font.NotoSansKrRegular
 
 @Composable
 fun HomeLayout() {
@@ -27,7 +28,7 @@ fun HomeLayout() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 20.dp, start = 20.dp, end = 20.dp)
+            .padding(top = 20.dp, start = 15.dp, end = 15.dp)
             .verticalScroll(scrollState),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -35,8 +36,11 @@ fun HomeLayout() {
         Text(
             text = "메신저봇",
             style = MaterialTheme.typography.headlineLarge,
+            fontFamily = NotoSansKrRegular,
             modifier = Modifier.padding(top = 70.dp)
         ) // title
+        
+        Spacer(modifier = Modifier.padding(10.dp))
 
         ActiveCard()
 
