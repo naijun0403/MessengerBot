@@ -24,9 +24,8 @@ import androidx.compose.ui.unit.dp
 fun GlobalLogSummary() {
     Card(
         modifier = Modifier
-            .width(350.dp)
-            .height(300.dp)
-            .padding(top = 30.dp, start = 10.dp, end = 10.dp, bottom = 10.dp),
+            .width(300.dp)
+            .height(250.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         )

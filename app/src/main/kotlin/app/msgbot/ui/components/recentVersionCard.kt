@@ -5,16 +5,21 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Error
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -52,54 +57,76 @@ fun RecentVersionCard(
             .height(100.dp),
         colors = color
     ) {
-        Column(
+        Row(
             modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .fillMaxSize()
         ) {
-            Row(
+            // status icon
+            Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp)
-                    .padding(start = 16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Start
+                    .fillMaxHeight()
+                    .padding(start = 20.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start
             ) {
-                if (isLatestVersion) {
-                    Image(
-                        imageVector = Icons.Default.CheckCircle,
-                        contentDescription = null,
-                        modifier = Modifier.size(25.dp),
-                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
-                    )
-                } else {
-                    Image(
-                        imageVector = Icons.Default.Error,
-                        contentDescription = null,
-                        modifier = Modifier.size(25.dp),
-                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onError)
+                Image(
+                    imageVector = if (isLatestVersion) Icons.Default.CheckCircle else Icons.Default.Error,
+                    contentDescription = null,
+                    colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(MaterialTheme.colorScheme.onError),
+                    modifier = Modifier
+                        .size(30.dp)
+                )
+            }
+
+            // status text
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+            ) {
+                Text(
+                    text = if (isLatestVersion) "최신버전입니다" else "최신버전이 아닙니다",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontFamily = NotoSansKrRegular,
+                    color = if (isLatestVersion) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onError,
+                    modifier = Modifier
+                        .padding(start = 20.dp, top = 16.dp)
+                )
+
+                Column(
+                    modifier = Modifier.requiredHeight(100.dp),
+                    verticalArrangement = Arrangement.Bottom,
+                ) {
+                    Text(
+                        text = if (isLatestVersion) "현재 버전: 1.0.0" else "최신 버전: 1.0.1",
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontFamily = NotoSansKrRegular,
+                        color = if (isLatestVersion) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onError,
+                        modifier = Modifier
+                            .padding(start = 20.dp, bottom = 50.dp)
                     )
                 }
+            }
 
-                Spacer(modifier = Modifier.padding(10.dp))
-
-                if (isLatestVersion) {
-                    Column {
-                        Text(text = "최신 버전입니다.", fontSize = 18.sp, fontFamily = NotoSansKrRegular)
-
-                        Spacer(modifier = Modifier.padding(1.dp))
-
-                        Text(text = "현재 버전 정보: 1.0", fontFamily = NotoSansKrRegular)
-                    }
-                } else {
-                    Column {
-                        Text(text = "최신 버전이 아닙니다.", fontSize = 18.sp, fontFamily = NotoSansKrRegular)
-
-                        Spacer(modifier = Modifier.padding(1.dp))
-
-                        Text(text = "현재 버전 정보: 1.0", fontFamily = NotoSansKrRegular)
-                    }
+            // close button
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 15.dp, end = 20.dp),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.End
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(20.dp),
+                ) {
+                    Image(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = null,
+                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
+                        modifier = Modifier
+                            .size(20.dp)
+                    )
                 }
             }
         }

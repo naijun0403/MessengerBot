@@ -25,9 +25,8 @@ fun NeedUpdateCard(
 ) {
     Card(
         modifier = Modifier
-            .width(350.dp)
-            .height(200.dp)
-            .padding(top = 30.dp, start = 10.dp, end = 10.dp, bottom = 10.dp),
+            .width(300.dp)
+            .height(150.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
         )
