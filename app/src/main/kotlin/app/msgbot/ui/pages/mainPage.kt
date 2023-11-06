@@ -97,7 +97,7 @@ fun MainPage() {
 fun NavGraphView(navController: NavHostController) {
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { HomeLayout() }
-        composable("botList") {  }
+        composable("botList") { BotListLayout() }
         composable("settings") {  }
     }
 }
