@@ -19,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import app.msgbot.ui.font.NotoSansKrRegular
 
 @Composable
 fun NeedUpdateCard(
@@ -36,33 +38,32 @@ fun NeedUpdateCard(
     ) {
         Column(
             modifier = Modifier
-                .padding(start = 20.dp, top = 20.dp),
+                .fillMaxSize()
+                .padding(start = 20.dp),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = "업데이트가 필요합니다", style = MaterialTheme.typography.titleLarge)
+            Text(text = "업데이트가 필요합니다", style = MaterialTheme.typography.titleLarge, fontFamily = NotoSansKrRegular)
 
-            Spacer(modifier = Modifier.requiredHeight(3.dp))
-
-            Text(text = "최신버전으로 업데이트 해주세요", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "최신버전으로 업데이트 해주세요", style = MaterialTheme.typography.bodyMedium, fontFamily = NotoSansKrRegular, modifier = Modifier.padding(bottom = 20.dp))
         }
 
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 20.dp, top = 20.dp, end = 20.dp, bottom = 15.dp),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.End
-        ) {
-            Button(
-                onClick = {
-                    uriHandler.openUri(downloadURL)
-                },
-                modifier = Modifier
-                    .requiredHeight(50.dp)
-            ) {
-                Text(text = "업데이트")
-            }
-        }
+//        Column(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(start = 20.dp, top = 20.dp, end = 20.dp, bottom = 15.dp),
+//            verticalArrangement = Arrangement.Bottom,
+//            horizontalAlignment = Alignment.End
+//        ) {
+//            Button(
+//                onClick = {
+//                    uriHandler.openUri(downloadURL)
+//                },
+//                modifier = Modifier
+//                    .requiredHeight(50.dp)
+//            ) {
+//                Text(text = "업데이트", fontFamily = NotoSansKrRegular)
+//            }
+//        }
     }
 }
