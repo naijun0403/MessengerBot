@@ -16,7 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.msgbot.ui.font.NotoSansKrRegular
+import app.msgbot.ui.font.D2CodingRegular
+import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 /**
  * TODO: 글로벌 로그 요약 (내용 미구현)
@@ -37,7 +38,7 @@ fun GlobalLogSummary() {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = "글로벌 로그", style = MaterialTheme.typography.titleLarge, fontFamily = NotoSansKrRegular)
+            Text(text = "글로벌 로그", style = MaterialTheme.typography.titleLarge, fontFamily = SpoqaHanSansNeoRegular)
         }
 
         Column(
@@ -71,7 +72,7 @@ fun GlobalLogSummary() {
                     .padding(bottom = 14.dp),
                 onClick = { /* TODO */ }
             ) {
-                Text(text = "자세히 보기", fontFamily = NotoSansKrRegular)
+                Text(text = "자세히 보기", fontFamily = SpoqaHanSansNeoRegular)
             }
         }
     }

@@ -19,8 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import app.msgbot.ui.font.NotoSansKrRegular
+import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 @Composable
 fun NeedUpdateCard(
@@ -39,31 +38,34 @@ fun NeedUpdateCard(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 20.dp),
+                .padding(start = 20.dp, top = 20.dp),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = "업데이트가 필요합니다", style = MaterialTheme.typography.titleLarge, fontFamily = NotoSansKrRegular)
+            Text(text = "업데이트가 필요합니다", style = MaterialTheme.typography.titleLarge, fontFamily = SpoqaHanSansNeoRegular)
+            
+            Spacer(modifier = Modifier.height(3.dp))
 
-            Text(text = "최신버전으로 업데이트 해주세요", style = MaterialTheme.typography.bodyMedium, fontFamily = NotoSansKrRegular, modifier = Modifier.padding(bottom = 20.dp))
+            Text(text = "최신버전으로 업데이트 해주세요", style = MaterialTheme.typography.bodyMedium, fontFamily = SpoqaHanSansNeoRegular, modifier = Modifier.padding(bottom = 20.dp))
         }
 
-//        Column(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(start = 20.dp, top = 20.dp, end = 20.dp, bottom = 15.dp),
-//            verticalArrangement = Arrangement.Bottom,
-//            horizontalAlignment = Alignment.End
-//        ) {
-//            Button(
-//                onClick = {
-//                    uriHandler.openUri(downloadURL)
-//                },
-//                modifier = Modifier
-//                    .requiredHeight(50.dp)
-//            ) {
-//                Text(text = "업데이트", fontFamily = NotoSansKrRegular)
-//            }
-//        }
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .requiredHeight(150.dp)
+                .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.End
+        ) {
+            Button(
+                onClick = {
+                    uriHandler.openUri(downloadURL)
+                },
+                modifier = Modifier
+                    .padding(bottom = 70.dp)
+            ) {
+                Text(text = "업데이트", fontFamily = SpoqaHanSansNeoRegular)
+            }
+        }
     }
 }

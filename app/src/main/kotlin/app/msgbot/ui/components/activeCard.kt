@@ -19,7 +19,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.msgbot.ui.font.NotoSansKrRegular
+import app.msgbot.ui.font.D2CodingRegular
+import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 /**
  * 봇을 활성화할지 여부를 설정하는 카드
@@ -49,7 +50,7 @@ fun ActiveCard() {
                 Text(
                     text = "모든 봇 활성화",
                     style = MaterialTheme.typography.titleMedium,
-                    fontFamily = NotoSansKrRegular,
+                    fontFamily = SpoqaHanSansNeoRegular,
                     color = if (isSystemInDarkTheme()) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }

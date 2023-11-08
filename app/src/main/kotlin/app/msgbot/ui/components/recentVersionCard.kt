@@ -27,8 +27,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import app.msgbot.ui.font.NotoSansKrRegular
+import app.msgbot.ui.font.D2CodingRegular
+import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 /**
  * 최신 버전인지 여부를 표시하는 카드
@@ -83,11 +83,12 @@ fun RecentVersionCard(
             Column(
                 modifier = Modifier
                     .fillMaxHeight()
+                    .padding(top = 10.dp)
             ) {
                 Text(
                     text = if (isLatestVersion) "최신버전입니다" else "최신버전이 아닙니다",
                     style = MaterialTheme.typography.titleMedium,
-                    fontFamily = NotoSansKrRegular,
+                    fontFamily = SpoqaHanSansNeoRegular,
                     color = if (isLatestVersion) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onError,
                     modifier = Modifier
                         .padding(start = 20.dp, top = 16.dp)
@@ -100,7 +101,7 @@ fun RecentVersionCard(
                     Text(
                         text = if (isLatestVersion) "현재 버전: 1.0.0" else "최신 버전: 1.0.1",
                         style = MaterialTheme.typography.bodyMedium,
-                        fontFamily = NotoSansKrRegular,
+                        fontFamily = SpoqaHanSansNeoRegular,
                         color = if (isLatestVersion) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onError,
                         modifier = Modifier
                             .padding(start = 20.dp, bottom = 50.dp)

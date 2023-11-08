@@ -25,7 +25,8 @@ import app.msgbot.ui.components.ActiveCard
 import app.msgbot.ui.components.GlobalLogSummary
 import app.msgbot.ui.components.NeedUpdateCard
 import app.msgbot.ui.components.RecentVersionCard
-import app.msgbot.ui.font.NotoSansKrRegular
+import app.msgbot.ui.font.D2CodingRegular
+import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 @Composable
 fun HomeLayout() {
@@ -46,7 +47,7 @@ fun HomeLayout() {
         Text(
             text = "메신저봇",
             style = MaterialTheme.typography.headlineLarge,
-            fontFamily = NotoSansKrRegular,
+            fontFamily = SpoqaHanSansNeoRegular,
             modifier = Modifier.padding(top = 70.dp)
         ) // title
 
