@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import app.msgbot.ui.font.D2CodingRegular
 import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 /**
@@ -38,7 +37,11 @@ fun GlobalLogSummary() {
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = "글로벌 로그", style = MaterialTheme.typography.titleLarge, fontFamily = SpoqaHanSansNeoRegular)
+            Text(
+                text = "글로벌 로그",
+                style = MaterialTheme.typography.titleLarge,
+                fontFamily = SpoqaHanSansNeoRegular
+            )
         }
 
         Column(
@@ -68,7 +71,8 @@ fun GlobalLogSummary() {
             horizontalAlignment = Alignment.End
         ) {
             Button(
-                modifier = Modifier.requiredHeight(54.dp)
+                modifier = Modifier
+                    .requiredHeight(54.dp)
                     .padding(bottom = 14.dp),
                 onClick = { /* TODO */ }
             ) {

@@ -42,11 +42,20 @@ fun NeedUpdateCard(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start
         ) {
-            Text(text = "업데이트가 필요합니다", style = MaterialTheme.typography.titleLarge, fontFamily = SpoqaHanSansNeoRegular)
-            
+            Text(
+                text = "업데이트가 필요합니다",
+                style = MaterialTheme.typography.titleLarge,
+                fontFamily = SpoqaHanSansNeoRegular
+            )
+
             Spacer(modifier = Modifier.height(3.dp))
 
-            Text(text = "최신버전으로 업데이트 해주세요", style = MaterialTheme.typography.bodyMedium, fontFamily = SpoqaHanSansNeoRegular, modifier = Modifier.padding(bottom = 20.dp))
+            Text(
+                text = "최신버전으로 업데이트 해주세요",
+                style = MaterialTheme.typography.bodyMedium,
+                fontFamily = SpoqaHanSansNeoRegular,
+                modifier = Modifier.padding(bottom = 20.dp)
+            )
         }
 
         Column(

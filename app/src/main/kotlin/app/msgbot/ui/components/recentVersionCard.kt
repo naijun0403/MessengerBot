@@ -4,10 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
@@ -27,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
-import app.msgbot.ui.font.D2CodingRegular
 import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 
 /**
@@ -73,7 +70,9 @@ fun RecentVersionCard(
                 Image(
                     imageVector = if (isLatestVersion) Icons.Default.CheckCircle else Icons.Default.Error,
                     contentDescription = null,
-                    colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(MaterialTheme.colorScheme.onError),
+                    colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(
+                        MaterialTheme.colorScheme.onError
+                    ),
                     modifier = Modifier
                         .size(30.dp)
                 )
@@ -127,7 +126,9 @@ fun RecentVersionCard(
                     Image(
                         imageVector = Icons.Default.Close,
                         contentDescription = null,
-                        colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(MaterialTheme.colorScheme.onError),
+                        colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(
+                            MaterialTheme.colorScheme.onError
+                        ),
                         modifier = Modifier
                             .size(20.dp)
                     )
