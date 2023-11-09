@@ -2,6 +2,7 @@ package app.msgbot.ui.pages
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.scaleOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -59,7 +60,7 @@ fun HomeLayout() {
 
         AnimatedVisibility(
             visible = visible,
-            exit = scaleOut()
+            exit = shrinkVertically()
         ) {
             Box(
                 modifier = Modifier.padding(bottom = 20.dp)
