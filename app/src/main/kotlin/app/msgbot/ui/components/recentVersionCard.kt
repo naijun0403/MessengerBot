@@ -127,7 +127,7 @@ fun RecentVersionCard(
                     Image(
                         imageVector = Icons.Default.Close,
                         contentDescription = null,
-                        colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
+                        colorFilter = if (isLatestVersion) ColorFilter.tint(MaterialTheme.colorScheme.onPrimary) else ColorFilter.tint(MaterialTheme.colorScheme.onError),
                         modifier = Modifier
                             .size(20.dp)
                     )
