@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 android {
@@ -46,7 +47,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -79,6 +80,8 @@ dependencies {
     implementation(libs.koin.androidx.workmanager)
     implementation(libs.koin.compose)
     implementation(libs.koin.ktor)
+
+    implementation(libs.ktorfit.lib)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

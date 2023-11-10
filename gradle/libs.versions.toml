@@ -1,6 +1,6 @@
 [versions]
 accompanist-systemuicontroller = "0.32.0"
-agp = "8.3.0-alpha12"
+agp = "8.3.0-alpha13"
 koin-bom = "3.5.1"
 koin-compose = "1.1.0"
 koin-core = "3.5.0"
@@ -9,12 +9,14 @@ core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
+ktorfit-lib = "1.10.0"
 lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.7.2"
 compose-bom = "2023.08.00"
 material-icons-extended = "1.5.4"
 navigation-compose = "2.7.4"
 ktor = "2.3.6"
+kotlinx-serialization = "1.9.0"
 
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
@@ -34,6 +36,7 @@ koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-com
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-core" }
 koin-core-coroutines = { module = "io.insert-koin:koin-core-coroutines", version.ref = "koin-core" }
 koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-bom" }
+ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit-lib" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
@@ -53,4 +56,5 @@ ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinx-serialization" }
 
