@@ -1,8 +1,10 @@
 package app.msgbot.ui.pages
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VisibilityThreshold
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInVertically
@@ -13,14 +15,17 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -42,28 +47,33 @@ fun HomeLayout() {
 
     var isLatestVersion = false
     val isLoadedVersion = rememberSaveable { mutableStateOf(false) }
+    val loadedVersionState: MutableState<HomeViewModel.VersionLoadState> = remember { mutableStateOf(HomeViewModel.VersionLoadState.Loading) }
 
     val scrollState = rememberScrollState()
 
-    var visible by rememberSaveable { mutableStateOf(false) }
+    var noticeVersionCardVisible by rememberSaveable { mutableStateOf(false) }
+    var needVersionCardVisible by rememberSaveable { mutableStateOf(false) }
 
     if (!isLoadedVersion.value) {
-        when (viewModel.state.collectAsState().value) {
+        when (val data = viewModel.state.collectAsState().value) {
             HomeViewModel.VersionLoadState.Loading -> {
-                visible = false
+                // maybe all value is false
             }
 
             is HomeViewModel.VersionLoadState.Success -> {
                 isLatestVersion = true
-                visible = true
+                noticeVersionCardVisible = true
 
+                loadedVersionState.value = data
                 isLoadedVersion.value = true
             }
 
             is HomeViewModel.VersionLoadState.Error -> {
                 isLatestVersion = false
-                visible = true
+                noticeVersionCardVisible = true
+                needVersionCardVisible = true
 
+                loadedVersionState.value = data
                 isLoadedVersion.value = true
             }
         }
@@ -91,7 +101,7 @@ fun HomeLayout() {
         Spacer(modifier = Modifier.height(20.dp))
 
         AnimatedVisibility(
-            visible = visible,
+            visible = noticeVersionCardVisible,
             enter = slideInVertically(
                 animationSpec = spring(
                     stiffness = Spring.StiffnessVeryLow,
@@ -104,18 +114,30 @@ fun HomeLayout() {
                 modifier = Modifier.padding(bottom = 20.dp)
             ) {
                 RecentVersionCard(isLatestVersion, onExit = {
-                    visible = false
+                    noticeVersionCardVisible = false
                 })
             }
         }
 
-        if (!isLatestVersion) {
-            NeedUpdateCard(
-                downloadURL = "https://github.com/naijun0403/MessengerBot/releases"
-            )
+        AnimatedVisibility(
+            visible = needVersionCardVisible,
+            enter = slideInVertically(
+                animationSpec = spring(
+                    stiffness = Spring.StiffnessVeryLow,
+                    visibilityThreshold = IntOffset.VisibilityThreshold
+                )
+            ),
+            exit = shrinkVertically()
+        ) {
+            Box(
+                modifier = Modifier.padding(bottom = 20.dp)
+            ) {
+                NeedUpdateCard(
+                    downloadURL = "https://github.com/naijun0403/MessengerBot/releases",
+                    enabled = true,
+                )
+            }
         }
-
-        Spacer(modifier = Modifier.height(20.dp))
 
         GlobalLogSummary()
 

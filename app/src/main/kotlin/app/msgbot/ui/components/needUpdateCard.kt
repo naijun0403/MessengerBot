@@ -24,7 +24,12 @@ import app.msgbot.ui.font.SpoqaHanSansNeoRegular
 @Composable
 fun NeedUpdateCard(
     downloadURL: String = "",
+    enabled: Boolean = true,
 ) {
+    if (!enabled) {
+        return
+    }
+
     val uriHandler = LocalUriHandler.current
 
     Card(
@@ -33,7 +38,7 @@ fun NeedUpdateCard(
             .height(150.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        )
+        ),
     ) {
         Column(
             modifier = Modifier
