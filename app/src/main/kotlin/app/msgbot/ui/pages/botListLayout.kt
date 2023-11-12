@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +26,7 @@ fun BotListLayout() {
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.padding(top = 70.dp)
         ) // title
-        
+
         BotCard(name = "sd")
     }
 }

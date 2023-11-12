@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -27,8 +26,6 @@ import app.msgbot.ui.components.GlobalLogSummary
 import app.msgbot.ui.components.NeedUpdateCard
 import app.msgbot.ui.components.RecentVersionCard
 import app.msgbot.ui.font.SpoqaHanSansNeoRegular
-import app.msgbot.viewmodel.HomeViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Composable
 fun HomeLayout() {

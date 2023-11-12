@@ -15,6 +15,10 @@ fun NavigationWrapper() {
     }
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val selectedDestination = navBackStackEntry?.destination?.route ?: Route.HOME
-    
-    MainPageContent(selectedDestination = selectedDestination, navigateToTopLevelDestination = navigationActions::navigateTo, navController = navController)
+
+    MainPageContent(
+        selectedDestination = selectedDestination,
+        navigateToTopLevelDestination = navigationActions::navigateTo,
+        navController = navController
+    )
 }
