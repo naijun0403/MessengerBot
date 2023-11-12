@@ -16,4 +16,10 @@ interface GithubApiService {
         @Path("repo") repo: String = "MessengerBot"
     ): GithubReleaseModel
 
+    @GET("repos/{author}/{repo}/releases")
+    suspend fun getReleases(
+        @Path("author") author: String = "naijun0403",
+        @Path("repo") repo: String = "MessengerBot"
+    ): List<GithubReleaseModel>
+
 }
