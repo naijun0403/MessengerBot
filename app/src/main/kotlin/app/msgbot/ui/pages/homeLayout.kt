@@ -41,9 +41,9 @@ fun HomeLayout() {
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory())
 
     var isLatestVersion = false
-    var isLoadedVersion = rememberSaveable { mutableStateOf(false) }
+    val isLoadedVersion = rememberSaveable { mutableStateOf(false) }
 
-    var scrollState = rememberScrollState()
+    val scrollState = rememberScrollState()
 
     var visible by rememberSaveable { mutableStateOf(false) }
 
