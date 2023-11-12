@@ -87,6 +87,9 @@ dependencies {
     implementation(libs.ktorfit.lib)
     ksp(libs.ktorfit.ksp)
 
+    implementation(libs.logger)
+    implementation(libs.slf4j.simple)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

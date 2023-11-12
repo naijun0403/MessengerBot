@@ -13,10 +13,12 @@ ktorfit-lib = "1.10.0"
 lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.7.2"
 compose-bom = "2023.08.00"
+logger = "2.2.0"
 material-icons-extended = "1.5.4"
 navigation-compose = "2.7.4"
 ktor = "2.3.6"
 kotlinx-serialization = "1.9.0"
+slf4j-simple = "2.0.9"
 ui-viewbinding = "1.5.4"
 ksp = "1.9.20-1.0.14"
 
@@ -44,6 +46,8 @@ ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref =
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+logger = { module = "com.orhanobut:logger", version.ref = "logger" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j-simple" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
