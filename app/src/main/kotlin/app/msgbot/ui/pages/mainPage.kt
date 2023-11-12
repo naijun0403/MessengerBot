@@ -11,7 +11,9 @@ import app.msgbot.ui.navigation.Route
 import app.msgbot.ui.navigation.TopLevelDestination
 
 @Composable
-fun NavGraphView(navController: NavHostController) {
+fun NavGraphView(
+    navController: NavHostController,
+) {
     NavHost(
         navController = navController,
         startDestination = Route.HOME
@@ -21,7 +23,7 @@ fun NavGraphView(navController: NavHostController) {
         }
 
         composable(Route.BOT_LIST) {
-            BotListLayout()
+            EmptyComingSoonLayout()
         }
 
         composable(Route.SETTINGS) {
@@ -35,7 +37,7 @@ fun NavGraphView(navController: NavHostController) {
 fun MainPageContent(
     selectedDestination: String,
     navigateToTopLevelDestination: (TopLevelDestination) -> Unit,
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     Scaffold(
         bottomBar = {

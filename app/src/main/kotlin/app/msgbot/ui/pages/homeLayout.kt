@@ -21,19 +21,29 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import app.msgbot.ui.components.ActiveCard
 import app.msgbot.ui.components.GlobalLogSummary
 import app.msgbot.ui.components.NeedUpdateCard
 import app.msgbot.ui.components.RecentVersionCard
 import app.msgbot.ui.font.SpoqaHanSansNeoRegular
+import app.msgbot.viewmodel.HomeViewModel
+import app.msgbot.viewmodel.HomeViewModelFactory
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun HomeLayout() {
+    val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory())
+
     var isLatestVersion = false // TODO: 최신버전인지 확인 (debug)
 
     var scrollState = rememberScrollState()
 
     var visible by rememberSaveable { mutableStateOf(true) }
+
+    runBlocking {
+        println(viewModel.githubApiService.getLatestRelease("naijun0403", "kakaolink")) // TODO: 최신버전인지 확인 (release)
+    }
 
     Column(
         modifier = Modifier

@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.ktorfit)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -83,6 +85,7 @@ dependencies {
     implementation(libs.koin.ktor)
 
     implementation(libs.ktorfit.lib)
+    ksp(libs.ktorfit.ksp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

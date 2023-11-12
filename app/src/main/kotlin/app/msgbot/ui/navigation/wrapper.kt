@@ -19,6 +19,6 @@ fun NavigationWrapper() {
     MainPageContent(
         selectedDestination = selectedDestination,
         navigateToTopLevelDestination = navigationActions::navigateTo,
-        navController = navController
+        navController = navController,
     )
 }
