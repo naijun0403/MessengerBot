@@ -1,7 +1,6 @@
 package app.msgbot.ui.pages
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.scaleOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,8 +26,9 @@ import app.msgbot.ui.components.ActiveCard
 import app.msgbot.ui.components.GlobalLogSummary
 import app.msgbot.ui.components.NeedUpdateCard
 import app.msgbot.ui.components.RecentVersionCard
-import app.msgbot.ui.font.D2CodingRegular
 import app.msgbot.ui.font.SpoqaHanSansNeoRegular
+import app.msgbot.viewmodel.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Composable
 fun HomeLayout() {
@@ -35,7 +36,7 @@ fun HomeLayout() {
 
     var scrollState = rememberScrollState()
 
-    var visible by remember { mutableStateOf(true) }
+    var visible by rememberSaveable { mutableStateOf(true) }
 
     Column(
         modifier = Modifier

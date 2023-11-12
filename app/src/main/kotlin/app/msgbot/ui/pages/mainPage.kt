@@ -1,5 +1,6 @@
 package app.msgbot.ui.pages
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -19,85 +20,50 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import app.msgbot.ui.navigation.MessengerBotNavigationBar
+import app.msgbot.ui.navigation.Route
+import app.msgbot.ui.navigation.TopLevelDestination
 
 @Composable
-fun MainPage() {
-    var selectedItem by remember { mutableIntStateOf(1) }
-    val navController = rememberNavController()
-
-    Scaffold(
-        bottomBar = {
-            NavigationBar {
-                NavigationBarItem(
-                    icon = { Icon(imageVector = Icons.Outlined.Menu, contentDescription = null) },
-                    label = { Text("봇 목록") },
-                    selected = selectedItem == 0,
-                    onClick = {
-                        selectedItem = 0
-                        navController.navigate("botList") {
-                            navController.graph.startDestinationRoute?.let {
-                                popUpTo(it) { saveState = true }
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
-
-                NavigationBarItem(
-                    icon = { Icon(imageVector = Icons.Outlined.Home, contentDescription = null) },
-                    label = { Text("홈") },
-                    selected = selectedItem == 1,
-                    onClick = {
-                        selectedItem = 1
-                        navController.navigate("home") {
-                            navController.graph.startDestinationRoute?.let {
-                                popUpTo(it) { saveState = true }
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
-
-                NavigationBarItem(
-                    icon = { Icon(imageVector = Icons.Outlined.Settings, contentDescription = null) },
-                    label = { Text("설정") },
-                    selected = selectedItem == 2,
-                    onClick = {
-                        selectedItem = 2
-                        navController.navigate("settings") {
-                            navController.graph.startDestinationRoute?.let {
-                                popUpTo(it) { saveState = true }
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
-            }
-        }
+fun NavGraphView(navController: NavHostController) {
+    NavHost(
+        navController = navController,
+        startDestination = Route.HOME
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(it),
-            contentAlignment = Alignment.Center
-        ) {
-            NavGraphView(navController = navController)
+        composable(Route.HOME) {
+            HomeLayout()
+        }
+
+        composable(Route.BOT_LIST) {
+            BotListLayout()
+        }
+
+        composable(Route.SETTINGS) {
+            EmptyComingSoonLayout() // TODO: SettingsLayout()
         }
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun NavGraphView(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeLayout() }
-        composable("botList") { BotListLayout() }
-        composable("settings") {  }
+fun MainPageContent(
+    selectedDestination: String,
+    navigateToTopLevelDestination: (TopLevelDestination) -> Unit,
+    navController: NavHostController
+) {
+    Scaffold(
+        bottomBar = {
+            MessengerBotNavigationBar(
+                selectedDestination = selectedDestination,
+                navigateToTopLevelDestination = navigateToTopLevelDestination
+            )
+        }
+    ) {
+        NavGraphView(navController = navController)
     }
 }

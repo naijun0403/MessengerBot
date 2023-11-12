@@ -1,7 +1,9 @@
 package app.msgbot.application
 
 import android.app.Application
+import app.msgbot.di.homeViewModel
 import app.msgbot.di.httpModule
+import app.msgbot.di.ktorfitModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.workmanager.koin.workManagerFactory
@@ -18,6 +20,8 @@ class App : Application() {
             workManagerFactory()
             modules(
                 httpModule,
+                ktorfitModule,
+                homeViewModel
             )
         }
     }
