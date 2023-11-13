@@ -19,12 +19,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.msgbot.ui.components.BotCard
+import app.msgbot.ui.components.BottomSheet
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BotListLayout(
     rootScaffoldPaddingValues: PaddingValues = PaddingValues(0.dp),
 ) {
+    BottomSheet {
+
+    }
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {}, shape = CircleShape) {

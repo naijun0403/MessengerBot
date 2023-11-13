@@ -1,10 +1,8 @@
 package app.msgbot.ui.pages
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.VisibilityThreshold
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInVertically
@@ -15,7 +13,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -47,7 +44,8 @@ fun HomeLayout() {
 
     var isLatestVersion = false
     val isLoadedVersion = rememberSaveable { mutableStateOf(false) }
-    val loadedVersionState: MutableState<HomeViewModel.VersionLoadState> = remember { mutableStateOf(HomeViewModel.VersionLoadState.Loading) }
+    val loadedVersionState: MutableState<HomeViewModel.VersionLoadState> =
+        remember { mutableStateOf(HomeViewModel.VersionLoadState.Loading) }
 
     val scrollState = rememberScrollState()
 
