@@ -15,24 +15,37 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.msgbot.ui.components.BotCard
 import app.msgbot.ui.components.BottomSheet
+import app.msgbot.ui.components.CreateBotProject
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun BotListLayout(
     rootScaffoldPaddingValues: PaddingValues = PaddingValues(0.dp),
 ) {
-    BottomSheet {
+    var showSheet by remember { mutableStateOf(false) }
 
+    if (showSheet) {
+        BottomSheet(
+            onDismiss = {
+                showSheet = false
+            },
+        ) {
+            CreateBotProject()
+        }
     }
 
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(onClick = {}, shape = CircleShape) {
+            FloatingActionButton(onClick = { showSheet = true }, shape = CircleShape) {
                 Icon(Icons.Filled.Add, "Floating Action Button")
             }
         },
