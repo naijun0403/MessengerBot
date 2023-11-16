@@ -3,7 +3,6 @@ package app.msgbot.ui.pages
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -28,9 +27,7 @@ import app.msgbot.ui.components.CreateBotProject
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun BotListLayout(
-    rootScaffoldPaddingValues: PaddingValues = PaddingValues(0.dp),
-) {
+fun BotListLayout() {
     var showSheet by remember { mutableStateOf(false) }
 
     if (showSheet) {
@@ -49,7 +46,6 @@ fun BotListLayout(
                 Icon(Icons.Filled.Add, "Floating Action Button")
             }
         },
-        modifier = Modifier.padding(rootScaffoldPaddingValues)
     ) {
         Column(
             modifier = Modifier

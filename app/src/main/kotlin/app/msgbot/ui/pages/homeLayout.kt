@@ -47,7 +47,6 @@ fun HomeLayout() {
     val loadedVersionState: MutableState<HomeViewModel.VersionLoadState> =
         remember { mutableStateOf(HomeViewModel.VersionLoadState.Loading) }
 
-    val scrollState = rememberScrollState()
 
     var noticeVersionCardVisible by rememberSaveable { mutableStateOf(false) }
     var needVersionCardVisible by rememberSaveable { mutableStateOf(false) }
@@ -64,6 +63,7 @@ fun HomeLayout() {
 
                 loadedVersionState.value = data
                 isLoadedVersion.value = true
+
             }
 
             is HomeViewModel.VersionLoadState.Error -> {
@@ -73,9 +73,12 @@ fun HomeLayout() {
 
                 loadedVersionState.value = data
                 isLoadedVersion.value = true
+
             }
         }
     }
+
+    val scrollState = rememberScrollState()
 
     Column(
         modifier = Modifier
@@ -140,5 +143,12 @@ fun HomeLayout() {
         GlobalLogSummary()
 
         Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "메신저봇은 메신저봇R의 공식 앱이 아닙니다.",
+            style = MaterialTheme.typography.bodyMedium,
+            fontFamily = SpoqaHanSansNeoRegular,
+            modifier = Modifier.padding(bottom = 20.dp)
+        )
     }
 }
