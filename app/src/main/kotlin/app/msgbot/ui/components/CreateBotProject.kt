@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import app.msgbot.model.ApiModel
 import app.msgbot.model.EngineModel
 import app.msgbot.model.LanguageModel
+import app.msgbot.ui.utils.TodoAlert
 
 val SELECTABLE_LANGUAGE = listOf(
     LanguageModel(
@@ -109,26 +110,9 @@ fun CreateBotProject() {
     }
 
     if (todoAlertVisible) {
-        AlertDialog(
-            onDismissRequest = {
-                todoAlertVisible = false
-            },
-            title = {
-                Text(text = "경고")
-            },
-            text = {
-                Text(text = """
-                    이 기능은 아직 구현되지 않았습니다.
-                """.trimIndent())
-            },
-            confirmButton = {
-                Button(onClick = {
-                    todoAlertVisible = false
-                }) {
-                    Text(text = "확인")
-                }
-            },
-        )
+        TodoAlert {
+            todoAlertVisible = false
+        }
     }
 
     Column(
