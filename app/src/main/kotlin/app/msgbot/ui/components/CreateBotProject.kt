@@ -81,6 +81,7 @@ fun CreateBotProject() {
     var apiSelected by remember { mutableStateOf(SELECTABLE_API.first().id) }
 
     var deprecatedAlertVisible by remember { mutableStateOf(false) }
+    var todoAlertVisible by remember { mutableStateOf(false) }
 
     if (deprecatedAlertVisible) {
         AlertDialog(
@@ -100,6 +101,29 @@ fun CreateBotProject() {
             confirmButton = {
                 Button(onClick = {
                     deprecatedAlertVisible = false
+                }) {
+                    Text(text = "확인")
+                }
+            },
+        )
+    }
+
+    if (todoAlertVisible) {
+        AlertDialog(
+            onDismissRequest = {
+                todoAlertVisible = false
+            },
+            title = {
+                Text(text = "경고")
+            },
+            text = {
+                Text(text = """
+                    이 기능은 아직 구현되지 않았습니다.
+                """.trimIndent())
+            },
+            confirmButton = {
+                Button(onClick = {
+                    todoAlertVisible = false
                 }) {
                     Text(text = "확인")
                 }
@@ -227,7 +251,11 @@ fun CreateBotProject() {
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
         ) {
-            Button(onClick = {}) {
+            Button(
+                onClick = {
+                    todoAlertVisible = true
+                }
+            ) {
                 Text(text = "생성")
             }
         }
