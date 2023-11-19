@@ -1,5 +1,11 @@
 [versions]
-accompanist-systemuicontroller = "0.32.0"
+versionCode = "1"
+versionName = "1.0"
+minSdk = "24"
+targetSdk = "34"
+compileSdk = "34"
+kotlin-compiler-extension = "1.5.3"
+androidDesugarJdkLibs = "2.0.3"
 agp = "8.3.0-alpha13"
 koin-bom = "3.5.1"
 koin-compose = "1.1.0"
@@ -25,6 +31,7 @@ material3-android = "1.2.0-alpha11"
 room = "2.6.0"
 appcompat = "1.6.1"
 material = "1.10.0"
+accompanist-systemuicontroller = "0.32.0"
 
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
@@ -32,6 +39,7 @@ androidx-material-icons-extended = { module = "androidx.compose.material:materia
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-ui-viewbinding = { module = "androidx.compose.ui:ui-viewbinding", version.ref = "ui-viewbinding" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }

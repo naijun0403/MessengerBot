@@ -57,6 +57,10 @@ gradlePlugin {
             id = "core"
             implementationClass = "module.CorePlugin"
         }
+        register("commonPresentationModule") {
+            id = "common.presentation"
+            implementationClass = "module.common.PresentationPlugin"
+        }
         register("androidLint") {
             id = "msgbot.android.lint"
             implementationClass = "AndroidLintConventionPlugin"
