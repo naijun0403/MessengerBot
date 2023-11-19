@@ -31,7 +31,6 @@ class AppPlugin : Plugin<Project> {
                 androidTestImplementation(platform(library("compose.bom")))
                 androidTestImplementation(library("ui.test.junit4"))
                 androidTestImplementation(library("navigation.testing"))
-                androidTestImplementation(library("hilt.navigation"))
                 debugImplementation(library("ui.tooling"))
                 debugImplementation(library("ui.test.manifest"))
             }

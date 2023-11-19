@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MessengerBot"
 include(":app")
+include(":common:presentation")

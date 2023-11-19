@@ -41,6 +41,14 @@ gradlePlugin {
             id = "room"
             implementationClass = "library.RoomPlugin"
         }
+        register("ktorfit") {
+            id = "ktorfit"
+            implementationClass = "library.KtorfitPlugin"
+        }
+        register("koin") {
+            id = "koin"
+            implementationClass = "library.KoinPlugin"
+        }
         register("appModule") {
             id = "app"
             implementationClass = "module.AppPlugin"

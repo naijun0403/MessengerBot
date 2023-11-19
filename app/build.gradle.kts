@@ -68,7 +68,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.androidx.ui.viewbinding)
-//    implementation(libs.material3)
+    implementation(libs.material3)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.accompanist.systemuicontroller)
@@ -85,7 +85,6 @@ dependencies {
     implementation(libs.koin.ktor)
 
     implementation(libs.ktorfit.lib)
-    implementation(libs.androidx.material3.android)
     ksp(libs.ktorfit.ksp)
 
     implementation(libs.logger)
