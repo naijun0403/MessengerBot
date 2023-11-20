@@ -57,6 +57,14 @@ gradlePlugin {
             id = "core"
             implementationClass = "module.CorePlugin"
         }
+        register("commonDataLocalModule") {
+            id = "common.data.local"
+            implementationClass = "module.common.data.LocalDataPlugin"
+        }
+        register("commonDataRemoteModule") {
+            id = "common.data.remote"
+            implementationClass = "module.common.data.RemoteDataPlugin"
+        }
         register("commonPresentationModule") {
             id = "common.presentation"
             implementationClass = "module.common.PresentationPlugin"

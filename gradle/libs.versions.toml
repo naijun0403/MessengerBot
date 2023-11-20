@@ -62,6 +62,7 @@ ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+kotlin-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 material3 = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3-android" }
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
