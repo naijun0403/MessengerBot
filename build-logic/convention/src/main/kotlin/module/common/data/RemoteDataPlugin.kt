@@ -14,12 +14,14 @@ class RemoteDataPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("msgbot.android.library")
+                apply("org.jetbrains.kotlin.plugin.serialization")
+                apply("koin")
             }
 
             dependencies {
                 implementation(library("core.ktx"))
                 implementation(bundle("ktor"))
-                implementation(library("kotlin.serialization"))
+//                implementation(library("kotlin.serialization"))
                 testImplementation(library("junit"))
                 androidTestImplementation(library("androidx.test.ext.junit"))
                 androidTestImplementation(library("espresso.core"))
