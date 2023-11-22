@@ -21,7 +21,6 @@ class RemoteDataPlugin : Plugin<Project> {
             dependencies {
                 implementation(library("core.ktx"))
                 implementation(bundle("ktor"))
-//                implementation(library("kotlin.serialization"))
                 testImplementation(library("junit"))
                 androidTestImplementation(library("androidx.test.ext.junit"))
                 androidTestImplementation(library("espresso.core"))
