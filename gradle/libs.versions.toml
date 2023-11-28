@@ -20,7 +20,7 @@ ktor = "2.3.6"
 kotlinx-serialization = "1.9.20"
 slf4j-simple = "2.0.9"
 ui-viewbinding = "1.5.4"
-ksp = "1.9.20-1.0.14"
+ksp = "1.9.21-1.0.15"
 material3-android = "1.2.0-alpha11"
 
 [libraries]
