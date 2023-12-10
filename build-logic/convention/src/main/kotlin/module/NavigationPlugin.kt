@@ -5,6 +5,7 @@ import app.msgbot.convention.util.debugImplementation
 import app.msgbot.convention.util.implementation
 import app.msgbot.convention.util.ksp
 import app.msgbot.convention.util.library
+import app.msgbot.convention.util.testImplementation
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
@@ -34,6 +35,7 @@ class NavigationPlugin : Plugin<Project> {
                 androidTestImplementation(platform(library("compose.bom")))
                 androidTestImplementation(library("ui.test.junit4"))
                 androidTestImplementation(library("navigation.testing"))
+                testImplementation(library("ui.test.junit4"))
                 debugImplementation(library("ui.tooling"))
                 debugImplementation(library("ui.test.manifest"))
             }
