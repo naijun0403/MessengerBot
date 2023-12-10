@@ -10,6 +10,6 @@ class HomeService(
     suspend fun getHome(author: String, repo: String) {
         client.get {
             url("https://api.github.com/repos/$author/$repo/releases/latest")
-        }.
+        }
     }
 }
