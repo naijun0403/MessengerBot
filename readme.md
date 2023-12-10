@@ -11,4 +11,5 @@
 - [x] material3 design
 
 ## ui concept
+> 이 ui와 다를 수 있습니다!
 [figma](https://www.figma.com/file/8mDTNn0OliFy8NDA3eJCru/renewal-messengerbot?type=design&node-id=54696%3A66&mode=dev)
