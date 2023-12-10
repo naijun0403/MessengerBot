@@ -1,9 +1,9 @@
 plugins {
-    id("common.presentation")
+    id("feature.home.data")
 }
 
 android {
-    namespace = "app.msgbot.common.presentation"
+    namespace = "app.msgbot.feature.home.data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

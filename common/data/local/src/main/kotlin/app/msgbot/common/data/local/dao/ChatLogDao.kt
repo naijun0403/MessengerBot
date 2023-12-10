@@ -25,4 +25,5 @@ interface ChatLogDao {
 
     @Update
     suspend fun updateChatLog(chatLog: ChatLog)
+
 }

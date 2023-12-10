@@ -1,16 +1,15 @@
 plugins {
-    id("common.presentation")
+    id("navigation")
 }
 
 android {
-    namespace = "app.msgbot.common.presentation"
+    namespace = "app.msgbot.navigation"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {

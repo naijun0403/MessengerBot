@@ -3,20 +3,24 @@ package module
 import app.msgbot.convention.util.androidTestImplementation
 import app.msgbot.convention.util.debugImplementation
 import app.msgbot.convention.util.implementation
+import app.msgbot.convention.util.ksp
 import app.msgbot.convention.util.library
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.project
 
-class AppPlugin : Plugin<Project> {
+class NavigationPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
+                apply("com.google.devtools.ksp")
                 apply("msgbot.android.application.compose")
             }
 
             dependencies {
+                implementation(library("compose.destinations"))
+                ksp(library("compose.destinations.ksp"))
+                implementation(library("navigation.compose"))
                 implementation(library("core.ktx"))
                 implementation(library("lifecycle.runtime.ktx"))
                 implementation(library("activity.compose"))

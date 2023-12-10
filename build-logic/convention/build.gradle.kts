@@ -69,6 +69,18 @@ gradlePlugin {
             id = "common.presentation"
             implementationClass = "module.common.PresentationPlugin"
         }
+        register("featureGithubDataModule") {
+            id = "feature.github.data"
+            implementationClass = "module.feature.github.DataPlugin"
+        }
+        register("featureHomeDataModule") {
+            id = "feature.home.data"
+            implementationClass = "module.feature.home.DataPlugin"
+        }
+        register("navigationModule") {
+            id = "navigation"
+            implementationClass = "module.NavigationPlugin"
+        }
         register("androidLint") {
             id = "msgbot.android.lint"
             implementationClass = "AndroidLintConventionPlugin"
