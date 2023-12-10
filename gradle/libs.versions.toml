@@ -29,6 +29,9 @@ ui-viewbinding = "1.5.4"
 ksp = "1.9.20-1.0.14"
 material3-android = "1.2.0-alpha12"
 room = "2.6.1"
+coroutines = "1.7.3"
+# higher versions not working
+coroutines-test = "1.6.4"
 navigation = "2.7.5"
 appcompat = "1.6.1"
 material = "1.10.0"
@@ -79,6 +82,8 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
 compose-destinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "compose-destinations" }
 github-api = { group = "org.kohsuke", name = "github-api", version.ref = "github-api" }
 

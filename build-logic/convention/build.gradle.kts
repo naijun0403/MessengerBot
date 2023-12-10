@@ -73,6 +73,10 @@ gradlePlugin {
             id = "feature.github.data"
             implementationClass = "module.feature.github.DataPlugin"
         }
+        register("featureGithubDomainModule") {
+            id = "feature.github.domain"
+            implementationClass = "module.feature.github.DomainPlugin"
+        }
         register("featureHomeDataModule") {
             id = "feature.home.data"
             implementationClass = "module.feature.home.DataPlugin"
