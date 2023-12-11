@@ -18,6 +18,8 @@ class DataPlugin : Plugin<Project> {
                 implementation(project(":common:data:local"))
                 implementation(project(":common:data:remote"))
                 implementation(library("github.api"))
+                implementation(project(":feature:github:domain"))
+                implementation(project(":core"))
             }
         }
     }

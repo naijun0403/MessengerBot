@@ -1,5 +1,6 @@
 package module.feature.github
 
+import app.msgbot.convention.util.implementation
 import app.msgbot.convention.util.library
 import app.msgbot.convention.util.testImplementation
 import org.gradle.api.Plugin
@@ -11,10 +12,11 @@ class DomainPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("msgbot.jvm.library")
+                apply("core")
             }
 
             dependencies {
-//                implementation(project(":core"))
+                implementation(project(":core"))
 //                implementation(library("javax.inject"))
                 testImplementation(library("coroutines.test"))
                 testImplementation(library("junit"))

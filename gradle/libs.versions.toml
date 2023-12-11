@@ -38,6 +38,7 @@ material = "1.10.0"
 accompanist-systemuicontroller = "0.32.0"
 compose-destinations = "1.9.55"
 github-api = "1.318"
+jetbrainsKotlinJvm = "1.9.0"
 
 [libraries]
 accompanist-systemuicontroller = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist-systemuicontroller" }
@@ -105,4 +106,5 @@ kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 ktorfit = { id = "de.jensklingenberg.ktorfit", version.ref = "ktorfit-lib" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
