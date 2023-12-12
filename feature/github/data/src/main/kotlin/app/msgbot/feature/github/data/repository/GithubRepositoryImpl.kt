@@ -14,17 +14,16 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onStart
 
 class GithubRepositoryImpl(
-    private val githubApiService: GithubApiService,
     private val ioDispatcher: CoroutineDispatcher
 ) : GithubRepository {
+    private val githubApiService by lazy { GithubApiService() }
+
     override fun getLatestRelease(): FlowResult<GithubReleaseEntity, GithubError> = flow<Result<GithubReleaseEntity, GithubError>> {
-        try {
-            val release = githubApiService.getLatestRelease()
-            emit(Result.Success(release.toDomain()))
-        } catch (e: Exception) {
-            emit(Result.Error(GithubError.UnknownError(e)))
-        }
-    }.onStart { emit(Result.Loading()) }.catch {
-        emit(Result.Error(GithubError.NetworkError))
+        val release = githubApiService.getLatestRelease()
+        emit(Result.Success(release.toDomain()))
+    }.onStart {
+        emit(Result.Loading())
+    }.catch {
+        emit(Result.Error(GithubError.UnknownError(it)))
     }.flowOn(ioDispatcher)
 }
