@@ -49,6 +49,10 @@ gradlePlugin {
             id = "koin"
             implementationClass = "library.KoinPlugin"
         }
+        register("feature") {
+            id = "feature"
+            implementationClass = "module.FeaturePlugin"
+        }
         register("appModule") {
             id = "app"
             implementationClass = "module.AppPlugin"
@@ -80,6 +84,10 @@ gradlePlugin {
         register("featureHomeDataModule") {
             id = "feature.home.data"
             implementationClass = "module.feature.home.DataPlugin"
+        }
+        register("featureHomePresentationModule") {
+            id = "feature.home.presentation"
+            implementationClass = "module.feature.home.PresentationPlugin"
         }
         register("navigationModule") {
             id = "navigation"

@@ -16,7 +16,7 @@ junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 ktorfit-lib = "1.10.1"
-lifecycle-runtime-ktx = "2.6.2"
+lifecycle = "2.6.2"
 activity-compose = "1.7.2"
 compose-bom = "2023.08.00"
 logger = "2.2.0"
@@ -32,6 +32,7 @@ room = "2.6.1"
 coroutines = "1.7.3"
 # higher versions not working
 coroutines-test = "1.6.4"
+localizationManager = "1.0"
 navigation = "2.7.5"
 appcompat = "1.6.1"
 material = "1.10.0"
@@ -58,7 +59,8 @@ koin-core-coroutines = { module = "io.insert-koin:koin-core-coroutines", version
 koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin-bom" }
 ktorfit-lib = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorfit-lib" }
 ktorfit-ksp = { module = "de.jensklingenberg.ktorfit:ktorfit-ksp", version.ref = "ktorfit-lib" }
-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 logger = { module = "com.orhanobut:logger", version.ref = "logger" }
@@ -85,6 +87,7 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+localizationManager = { group = "com.github.emirhanemmez", name = "localizationmanager", version.ref = "localizationManager" }
 compose-destinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "compose-destinations" }
 github-api = { group = "org.kohsuke", name = "github-api", version.ref = "github-api" }
 
