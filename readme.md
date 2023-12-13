@@ -1,4 +1,6 @@
 # MessengerBot
+![Discord Shield](https://discordapp.com/api/guilds/1183425439662866493/widget.png)
+
 기존 메신저봇R에 산재된 문제들을 해결하고, 더욱 편리하게 사용할 수 있도록 만든 메신저봇R의 확장판입니다.
 
 ## why public?
