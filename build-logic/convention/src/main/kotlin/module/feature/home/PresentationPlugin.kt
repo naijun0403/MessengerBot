@@ -16,7 +16,6 @@ class PresentationPlugin : Plugin<Project> {
 
             dependencies {
 //                implementation(project(":feature:home:domain"))
-                implementation(library("localizationManager"))
             }
         }
     }

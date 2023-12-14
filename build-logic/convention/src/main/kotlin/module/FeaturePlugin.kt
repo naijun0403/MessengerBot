@@ -2,6 +2,7 @@ package module
 
 import app.msgbot.convention.util.androidTestImplementation
 import app.msgbot.convention.util.implementation
+import app.msgbot.convention.util.ksp
 import app.msgbot.convention.util.library
 import app.msgbot.convention.util.testImplementation
 import app.msgbot.convention.util.versionInt
@@ -17,6 +18,7 @@ class FeaturePlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("msgbot.android.library.compose")
+                apply("msgbot.ksp")
                 apply("org.jetbrains.kotlin.plugin.parcelize")
                 apply("koin")
             }
@@ -29,6 +31,7 @@ class FeaturePlugin : Plugin<Project> {
                 implementation(library("lifecycle.runtime.compose"))
                 implementation(library("navigation.compose"))
                 implementation(library("compose.destinations"))
+                ksp(library("compose.destinations.ksp"))
 //                implementation(library("hilt.navigation"))
 //                implementation(library("coil"))
                 androidTestImplementation(library("androidx.test.ext.junit"))

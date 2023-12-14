@@ -37,6 +37,10 @@ gradlePlugin {
             id = "msgbot.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        register("ksp") {
+            id = "msgbot.ksp"
+            implementationClass = "KspConventionPlugin"
+        }
         register("room") {
             id = "room"
             implementationClass = "library.RoomPlugin"

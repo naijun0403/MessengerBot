@@ -32,7 +32,6 @@ room = "2.6.1"
 coroutines = "1.7.3"
 # higher versions not working
 coroutines-test = "1.7.1"
-localizationManager = "1.0"
 navigation = "2.7.5"
 appcompat = "1.6.1"
 material = "1.10.0"
@@ -87,7 +86,6 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
-localizationManager = { group = "com.github.emirhanemmez", name = "localizationmanager", version.ref = "localizationManager" }
 compose-destinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "compose-destinations" }
 github-api = { group = "org.kohsuke", name = "github-api", version.ref = "github-api" }
 
