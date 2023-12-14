@@ -9,5 +9,8 @@ enum class BottomBarDestination(
     val iconSelected: ImageVector,
     val iconUnselected: ImageVector
 ) {
-    // TODO: Add destinations
+//    // TODO: Add destinations
+//    Home(
+//        HpmeDestination,
+//    )
 }

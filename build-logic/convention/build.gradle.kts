@@ -85,6 +85,10 @@ gradlePlugin {
             id = "feature.home.data"
             implementationClass = "module.feature.home.DataPlugin"
         }
+        register("featureHomeDomainModule") {
+            id = "feature.home.domain"
+            implementationClass = "module.feature.home.DomainPlugin"
+        }
         register("featureHomePresentationModule") {
             id = "feature.home.presentation"
             implementationClass = "module.feature.home.PresentationPlugin"
