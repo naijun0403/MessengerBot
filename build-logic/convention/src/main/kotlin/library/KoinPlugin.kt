@@ -14,6 +14,7 @@ class KoinPlugin : Plugin<Project> {
                 implementation(library("koin.core.coroutines"))
                 implementation(library("koin.core"))
                 implementation(library("koin.androidx.workmanager"))
+                implementation(library("koin.androidx.compose"))
             }
         }
     }

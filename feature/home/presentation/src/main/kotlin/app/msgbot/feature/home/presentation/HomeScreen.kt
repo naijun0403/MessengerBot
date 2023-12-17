@@ -10,5 +10,5 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 fun HomeScreen(
     navigator: DestinationsNavigator
 ) {
-    HomeScreenDestination
+
 }
