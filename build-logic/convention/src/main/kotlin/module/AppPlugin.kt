@@ -14,9 +14,20 @@ class AppPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("msgbot.android.application.compose")
+                apply("koin")
             }
 
             dependencies {
+                implementation(project(":navigation"))
+                implementation(project(":core"))
+                implementation(project(":common:data:local"))
+                implementation(project(":common:data:remote"))
+                implementation(project(":common:presentation"))
+                implementation(project(":feature:home:data"))
+                implementation(project(":feature:home:domain"))
+                implementation(project(":feature:home:presentation"))
+                implementation(project(":feature:github:data"))
+                implementation(project(":feature:github:domain"))
                 implementation(library("core.ktx"))
                 implementation(library("lifecycle.runtime.ktx"))
                 implementation(library("activity.compose"))

@@ -15,7 +15,7 @@ class NavigationPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply {
                 apply("com.google.devtools.ksp")
-                apply("msgbot.android.application.compose")
+                apply("msgbot.android.library.compose")
             }
 
             dependencies {
