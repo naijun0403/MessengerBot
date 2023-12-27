@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -22,3 +23,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "MessengerBot"
 include(":app")
+include(":common:presentation")
+include(":common:data:local")
+include(":common:data:remote")
+include(":navigation")
+//include(":feature:home")
+include(":feature:home:data")
+include(":feature:github:data")
+include(":feature:github:domain")
+include(":core")
+include(":feature:home:presentation")
+include(":feature:home:domain")
